@@ -12,4 +12,6 @@
              (uiop:symbol-call :superposition-test :run-all-tests))
   :components ((:module "test"
                 :components ((:file "package")
+                             (:file "statistics" :depends-on ("package"))
+                             (:file "variable" :depends-on ("package"))
                              (:file "run" :depends-on ("package"))))))

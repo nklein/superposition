@@ -11,4 +11,7 @@
   :components ((:static-file "README.md")
                (:static-file "UNLICENSE.txt")
                (:module "src"
-                :components ((:file "package")))))
+                :components ((:file "package")
+                             (:file "statistics" :depends-on ("package"))
+                             (:file "variable" :depends-on ("package"
+                                                            "statistics"))))))

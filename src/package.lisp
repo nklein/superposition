@@ -7,4 +7,13 @@
                           #:+
                           #:-
                           #:*
-                          #:/))
+                          #:/)
+  ;; statistics.lisp
+  (:export #:μ
+           #:mean
+           #:σ²
+           #:variance)
+  ;; variable.lisp
+  (:export #:random-variable
+           #:gaussian-random-variable
+           #:make-gaussian-random-variable))
