@@ -3,4 +3,9 @@
 
 (defpackage #:superposition-test
   (:use #:cl #:superposition)
+  (:shadowing-import-from #:common-lisp/generic-arithmetic
+                          #:+
+                          #:-
+                          #:*
+                          #:/)
   (:export :run-all-tests))

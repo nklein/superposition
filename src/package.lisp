@@ -8,6 +8,8 @@
                           #:-
                           #:*
                           #:/)
+  (:import-from #:common-lisp/generic-arithmetic
+                #:nullary-+ #:unary-+ #:binary-+)
   ;; statistics.lisp
   (:export #:μ
            #:mean

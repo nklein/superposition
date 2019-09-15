@@ -14,4 +14,5 @@
                 :components ((:file "package")
                              (:file "statistics" :depends-on ("package"))
                              (:file "variable" :depends-on ("package"))
+                             (:file "arithmetic" :depends-on ("package"))
                              (:file "run" :depends-on ("package"))))))
