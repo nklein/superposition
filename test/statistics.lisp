@@ -11,7 +11,7 @@
             (mean 3)))
 
   (nst:def-test variance-of-number-is-zero (:values
-                                            (:equal 0.0)
-                                            (:equal 0.0))
+                                            (:equal 0)
+                                            (:equal 0))
     (values (σ² 3)
             (variance 3))))

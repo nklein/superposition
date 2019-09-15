@@ -13,7 +13,7 @@
 
 (defgeneric σ² (x)
   (:method ((x number))
-    0.0))
+    0))
 
 (declaim (inline variance))
 (defun variance (x)
