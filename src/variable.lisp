@@ -8,11 +8,9 @@
 
 (defclass gaussian-random-variable (random-variable)
   ((μ :initarg :μ
-      :reader μ
-      :reader mean)
+      :reader μ)
    (σ² :initarg :σ²
-        :reader σ²
-        :reader variance))
+        :reader σ²))
   (:default-initargs :μ 0.0 :σ² 1.0))
 
 (defun make-gaussian-random-variable (&optional
