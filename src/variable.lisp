@@ -14,22 +14,32 @@
     (declare (ignore x))
     nil))
 
-(defclass dependent-random-variable ()
+(defclass independent-random-variable (random-variable)
+  ())
+
+(defun independent-random-variable-p (x)
+  (typep x 'independent-random-variable))
+
+(defclass dependent-random-variable (random-variable)
   ((dependencies :initarg :dependencies
                  :reader dependencies))
   (:default-initargs :dependencies (error "Must specify dependencies")))
 
-(defclass gaussian-mixin ()
+(defun dependent-random-variable-p (x)
+  (typep x 'dependent-random-variable))
+
+(defclass gaussian-random-variable (random-variable)
   ((μ :initarg :μ
       :reader μ)
    (σ² :initarg :σ²
         :reader σ²))
   (:default-initargs :μ 0.0 :σ² 1.0))
 
-(defclass gaussian-random-variable (gaussian-mixin random-variable)
+(defclass independent-gaussian-random-variable (gaussian-random-variable
+                                                independent-random-variable)
   ())
 
-(defclass dependent-gaussian-random-variable (gaussian-mixin
+(defclass dependent-gaussian-random-variable (gaussian-random-variable
                                               dependent-random-variable)
   ())
 
@@ -37,7 +47,7 @@
                                         (μ 0.0 μ-p)
                                         (σ² 1.0 σ²-p))
   (apply #'make-instance
-         'gaussian-random-variable
+         'independent-gaussian-random-variable
          (append (when μ-p `(:μ ,μ))
                  (when σ²-p `(:σ² ,σ²)))))
 

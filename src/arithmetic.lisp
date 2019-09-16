@@ -13,7 +13,7 @@
                      (b gaussian-random-variable))
   (if (zerop a)
       b
-      (make-dependent-gaussian-random-variable (list b)
+      (make-dependent-gaussian-random-variable (list* b (dependencies b))
                                                (cl:+ a (μ b))
                                                (σ² b))))
 
@@ -21,8 +21,8 @@
                      (b number))
   (binary-+ b a))
 
-(defmethod binary-+ ((a gaussian-random-variable)
-                     (b gaussian-random-variable))
+(defmethod binary-+ ((a independent-gaussian-random-variable)
+                     (b independent-gaussian-random-variable))
   (make-dependent-gaussian-random-variable (list a b)
                                            (cl:+ (μ a) (μ b))
                                            (cl:+ (σ² a) (σ² b))))

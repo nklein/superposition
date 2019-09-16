@@ -17,5 +17,6 @@
            #:variance)
   ;; variable.lisp
   (:export #:random-variable
+           #:random-variable-p
            #:gaussian-random-variable
            #:make-gaussian-random-variable))
